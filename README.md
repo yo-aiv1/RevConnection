@@ -1,7 +1,7 @@
 <div align="center">
   <h1>RevLink</h1>
 </div>
-RevLink is simple reverse shell (for now) written in C, it uses winsock to establish a connection to the attacker, it access the PEB to get the base of NTDLL and resolves the needed functions during runtime. also it uses another know AV evading techniques which is string encoding/hashing.
+RevConnection is an undetectable reverse shell written in C for Windows. It uses sockets to establish a connection to the attacker. And for evading detection I used the PEB structure to get the base of NTDLL and resolve the needed functions during runtime. I also used some other AV-evading techniques such as string encoding and API hashing.
 
 ## Usage
 ### Linux
