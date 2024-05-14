@@ -21,7 +21,7 @@ make port=<port> ip=<ip address>
 This will compile the project and create an executable in the "bin" folder.
 
 #### Windows
-1.  Download and install the GNU Compiler Collection (GCC) for Windows from [winlibs]([https://gcc.gnu.org/install/](https://winlibs.com/#download-release)). Make sure to add the installation directory to your system path environment variable during installation.
+1.  Download and install the GNU Compiler Collection (GCC) for Windows from [winlibs](https://winlibs.com/#download-release). Make sure to add the installation directory to your system path environment variable during installation.
 2.  Open a command prompt in the project directory.
 3.  Run the following command, replacing `<port>` with the desired port number and `<ip address>` with the IP address to bind to:
 ```
