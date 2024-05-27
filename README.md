@@ -8,7 +8,7 @@ RevConnection is an undetectable reverse shell written in C for Windows. It uses
 
 **Prerequisites:**
 -   Python (Make sure you have a recent version installed. You can check by running `python --version` in your terminal)
--   C++ compiler (For Linux C++ cross compiler x86_64-w64-mingw32-g++)
+-   C compiler (For Linux C cross compiler x86_64-w64-mingw32-gcc)
 
 #### Linux
 1.  Clone the repository.

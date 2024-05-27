@@ -2,11 +2,11 @@
 setlocal
 
 set "CC=gcc"
-set "CCX64=x86_64-w64-mingw32-g++"
+set "CCX64=x86_64-w64-mingw32-gcc"
 set "INCLUDE_DIR=-Iinclude"
-set "CFLAGS=-Os -fno-asynchronous-unwind-tables -nostdlib -fno-ident -fpack-struct=8 -falign-functions=1 -s -ffunction-sections -falign-jumps=1 -w -falign-labels=1 -fPIC -masm=intel -fpermissive -mrdrnd -Wl,-s,--no-seh,--enable-stdcall-fixup"
+set "CFLAGS=-Os -fno-asynchronous-unwind-tables -nostdlib -fno-ident -fpack-struct=8 -falign-functions=1 -s -falign-jumps=1 -w -falign-labels=1 -fPIC -masm=intel -fpermissive -mrdrnd -Wl,-s,--no-seh,--enable-stdcall-fixup"
 set "SRC=src\main.c src\loaders.c src\utils.c"
-set "OBJ=main.o loaders.o utils.o"
+set "OBJ=main.o loaders.o utils.o peb.o"
 set "TARGET=bin\main.exe"
 
 if "%~2"=="" (
@@ -25,7 +25,8 @@ if %errorlevel% neq 0 (
 echo DONE
 
 
-<nul set /p =COMPILING... 
+<nul set /p =COMPILING...
+nasm -f win64 src/peb.asm -o peb.o
 for %%i in (%SRC%) do (
     %CCX64% %CFLAGS% %INCLUDE_DIR% -c %%i -o %%~ni.o
 )

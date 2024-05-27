@@ -63,6 +63,4 @@ void GetOriginalStr(const char *str, wchar_t *OriginalStr) {
         idx++;
     }
     OriginalStr[idx] = L'\0';
-
-    return OriginalStr;
 }

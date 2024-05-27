@@ -2,9 +2,12 @@
 #include "../include/loaders.h"
 #include "../include/utils.h"
 
+extern void *GetPEB();
+
 
 void *GetDllAddress(unsigned long DllHash) {
-    PPEB_LDR_DATA           pLdr            = NtCurrentPeb()->Ldr;
+    PEB                     *pebptr         = (PEB*)GetPEB();
+    PPEB_LDR_DATA           pLdr            = pebptr->Ldr;
     PLDR_DATA_TABLE_ENTRY   EntryPtr        = {0};
     PLIST_ENTRY             ListEntryHead   = {0};
 
