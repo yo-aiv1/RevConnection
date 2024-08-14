@@ -13,37 +13,37 @@ TARGET = bin/main.exe
 all: argscheck edit compile link clean
 
 argscheck:
-        @if [ -z "$(ip)" ]; then \
+				@if [ -z "$(ip)" ]; then \
                 echo "Error: 'ip' argument is required."; \
                 exit 1; \
         fi
-        @if [ -z "$(port)" ]; then \
+				@if [ -z "$(port)" ]; then \
                 echo "Error: 'port' argument is required."; \
                 exit 1; \
         fi
 
 
 edit:
-        @ echo "PARSING\c"
-        @ $(CC) utils/tobytes.c -o utils/convert
-        @ python3 utils/edit.py $(port) $(ip)
-        @ echo "... DONE"
-        @ echo "COMPILING\c"
+				@ echo "PARSING\c"
+				@ $(CC) utils/tobytes.c -o utils/convert
+				@ python3 utils/edit.py $(port) $(ip)
+				@ echo "... DONE"
+				@ echo "COMPILING\c"
 
 compile: $(OBJ)
-        @ nasm -f win64 src/peb.asm -o src/peb.o
+				@ nasm -f win64 src/peb.asm -o src/peb.o
 %.o: %.c
-        @ $(CCX64) $(CFLAGS) $(INCLUDE_DIR) -c $< -o $@
+				@ $(CCX64) $(CFLAGS) $(INCLUDE_DIR) -c $< -o $@
 
 link:
-        @ $(CCX64) $(OBJ) src/peb.o $(CFLAGS) -o $(TARGET)
-        @ echo "... DONE"
+				@ $(CCX64) $(OBJ) src/peb.o $(CFLAGS) -o $(TARGET)
+				@ echo "... DONE"
 
 clean:
-        @ echo "CLEANING\c"
-        @ rm -f utils/convert
-        @ rm -f $(OBJ)
-        @ rm -f src/peb.o
-        @ python3 utils/edit.py back
-        @ echo "... DONE\n"
-        @ echo "THE EXECUTABLE IS LOCATED AT: $(TARGET)"
+				@ echo "CLEANING\c"
+				@ rm -f utils/convert
+				@ rm -f $(OBJ)
+				@ rm -f src/peb.o
+				@ python3 utils/edit.py back
+				@ echo "... DONE\n"
+				@ echo "THE EXECUTABLE IS LOCATED AT: $(TARGET)"
